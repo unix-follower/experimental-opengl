@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 4.3.3)
+cmake_minimum_required(VERSION 4.4.1)
 
-project(visual_physics_opengl VERSION 1.0.0 LANGUAGES C CXX)
+project(experimental_opengl VERSION 1.0.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -8,19 +8,18 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED CONFIG)
+find_package(glad REQUIRED CONFIG)
 
-add_executable(visual_physics_opengl src/visual_physics_opengl.cpp)
-set_target_properties(visual_physics_opengl PROPERTIES OUTPUT_NAME visual_physics_opengl)
-target_link_libraries(visual_physics_opengl PRIVATE OpenGL::GL glfw)
+add_library(experimental_opengl_core
+	STATIC
+	src/experimental_opengl.hpp
+	src/experimental_opengl.cpp
+)
+target_compile_features(experimental_opengl_core PUBLIC cxx_std_23)
+target_link_libraries(experimental_opengl_core PUBLIC OpenGL::GL glfw glad::glad)
+
+add_executable(experimental_opengl src/main.cpp)
+target_link_libraries(experimental_opengl PRIVATE experimental_opengl_core)
+set_target_properties(experimental_opengl PROPERTIES OUTPUT_NAME experimental_opengl_app)
 
 enable_testing()
-find_package(GTest CONFIG REQUIRED)
-
-add_executable(tests test/visual_physics_opengl_test.cpp)
-target_link_libraries(
-	tests
-	PRIVATE visual_physics_opengl GTest::gtest GTest::gtest_main
-)
-
-include(GoogleTest)
-gtest_discover_tests(tests DISCOVERY_TIMEOUT 30)

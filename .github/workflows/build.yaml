@@ -1,4 +1,4 @@
-name: Build visual-physics-opengl
+name: Build experimental-opengl
 on:
   pull_request:
     types:
@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        # https://github.com/marketplace/actions/checkout
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -24,7 +25,7 @@ jobs:
       - name: Check C++ formatting
         run: |
           clang-format --version
-          find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\)' | xargs clang-format --dry-run --Werror
+          git ls-files '*.cpp' '*.hpp' '*.cc' '*.cxx' '*.vert' '*.frag' | xargs clang-format --dry-run --Werror
 
       - name: Install Ubuntu build dependencies
         run: |
@@ -38,12 +39,14 @@ jobs:
             xorg-dev
 
       # Install latest CMake and Ninja.
+      # https://github.com/marketplace/actions/get-cmake
       - uses: lukka/get-cmake@latest
       # Setup vcpkg: ensures vcpkg is downloaded and built.
       # Since vcpkg.json is being used later on to install the packages
       # when `run-cmake` runs, no packages are installed at this time
       # (and vcpkg does not run).
       - name: Setup new (or from cache) vcpkg (and does not build any package)
+        # https://github.com/marketplace/actions/run-vcpkg
         uses: lukka/run-vcpkg@v11
         with:
           vcpkgGitCommitId: fc349a7b35348173d4d24621ae04ad80e2375957
@@ -55,10 +58,11 @@ jobs:
       - name: Check C++ static analysis
         shell: bash
         run: |
-          find src -type f \( -name '*.cpp' -o -name '*.hpp' -o -name '*.h' \) -print0 \
-            | xargs -0 clang-tidy -p build
+          clang-tidy --version
+          git ls-files '*.cpp' '*.hpp' '*.cc' '*.cxx' | xargs clang-tidy -p build
 
       - name: Run CMake consuming CMakePreset.json and run vcpkg to build packages
+        # https://github.com/marketplace/actions/run-cmake
         uses: lukka/run-cmake@v10
         with:
           cmakeListsTxtPath: CMakeLists.txt

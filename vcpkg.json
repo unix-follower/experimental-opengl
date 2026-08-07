@@ -1,6 +1,7 @@
 {
   "dependencies": [
     "glfw3",
-    "gtest"
+    "gtest",
+    "glad"
   ]
 }
