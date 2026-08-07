@@ -49,7 +49,7 @@ GLuint createTriangleShaderProgram()
 
 void bindBuffers(GLuint& vertexArrayObject,
                  GLuint& vertexBufferObject,
-                 GLfloat* vertices,
+                 const GLfloat* vertices,
                  size_t verticesSize)
 {
     glGenVertexArrays(1, &vertexArrayObject);
@@ -69,7 +69,7 @@ void bindBuffers(GLuint& vertexArrayObject,
 
 void drawTriangle(GLuint shaderProgram, GLuint vertexArrayObject)
 {
-    glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+    glClearColor(0.07F, 0.13F, 0.17F, 1.0F);
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(shaderProgram);
     glBindVertexArray(vertexArrayObject);
@@ -106,18 +106,19 @@ int showTriangle()
     GLuint shaderProgram = createTriangleShaderProgram();
 
     GLfloat vertices[] = {
-        -0.5f,
-        -0.5f * float(sqrt(3)) / 3,
-        0.0f, // Lower left corner
-        0.5f,
-        -0.5f * float(sqrt(3)) / 3,
-        0.0f, // Lower right corner
-        0.0f,
-        0.5f * float(sqrt(3)) * 2 / 3,
-        0.0f // Upper corner
+        -0.5F,
+        -0.5F * float(sqrt(3)) / 3,
+        0.0F, // Lower left corner
+        0.5F,
+        -0.5F * float(sqrt(3)) / 3,
+        0.0F, // Lower right corner
+        0.0F,
+        0.5F * float(sqrt(3)) * 2 / 3,
+        0.0F // Upper corner
     };
 
-    GLuint vao, vbo;
+    GLuint vao;
+    GLuint vbo;
     bindBuffers(vao, vbo, vertices, sizeof(vertices));
 
     while (!glfwWindowShouldClose(window)) {
