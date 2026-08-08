@@ -1,8 +1,9 @@
-#include "experimental_opengl.hpp"
+#include "basic_shapes.hpp"
 
 #include <cmath>
 #include <iostream>
 
+namespace {
 struct ShaderPair {
     GLuint vertex, fragment;
 };
@@ -83,8 +84,9 @@ void cleanUpShaderProgram(GLuint shaderProgram, GLuint vertexArrayObject, GLuint
     glDeleteBuffers(1, &vertexBufferObject);
     glDeleteProgram(shaderProgram);
 }
+} // namespace
 
-int showTriangle()
+int basic_shapes::showEquilateralTriangle()
 {
     glfwInit();
 
@@ -93,7 +95,7 @@ int showTriangle()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 800, "Experimental OpenGL", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(800, 800, "Equilateral Triangle", NULL, NULL);
     if (window == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -107,15 +109,11 @@ int showTriangle()
     GLuint shaderProgram = createTriangleShaderProgram();
 
     GLfloat vertices[] = {
-        -0.5F,
-        -0.5F * float(sqrt(3)) / 3,
-        0.0F, // Lower left corner
-        0.5F,
-        -0.5F * float(sqrt(3)) / 3,
-        0.0F, // Lower right corner
-        0.0F,
-        0.5F * float(sqrt(3)) * 2 / 3,
-        0.0F // Upper corner
+        // clang-format off
+        -0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower left corner
+        0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower right corner
+        0.0F, 0.5F * float(sqrt(3)) * 2 / 3, 0.0F // Upper corner
+        // clang-format on
     };
 
     GLuint vao;
