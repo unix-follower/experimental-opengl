@@ -1,5 +1,7 @@
 #include "basic_shapes.hpp"
 
+#include <cmath>
+
 namespace {
 constexpr char const* vertexShaderSource = "#version 330 core\n"
                                            "layout (location = 0) in vec3 aPos;\n"

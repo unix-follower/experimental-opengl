@@ -4,6 +4,7 @@
 #include <functional>
 #include <iostream>
 #include <map>
+#include <stdexcept>
 #include <string>
 
 namespace {
@@ -30,7 +31,7 @@ int main(int argc, char* argv[])
         const auto result = options.parse(argc, argv);
 
         if (result.count("help")) {
-            std::cout << options.help() << std::endl;
+            std::cout << options.help() << '\n';
             return 0;
         }
 
@@ -48,7 +49,15 @@ int main(int argc, char* argv[])
     }
     catch (const cxxopts::exceptions::parsing& e) {
         std::cerr << "Error parsing options: " << e.what() << "\n\n";
-        std::cerr << options.help() << std::endl;
+        std::cerr << options.help() << '\n';
         return 1;
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Error occurred: " << e.what() << '\n';
+        return -1;
+    }
+    catch (...) {
+        std::cerr << "Unknown error" << '\n';
+        return -2;
     }
 }
