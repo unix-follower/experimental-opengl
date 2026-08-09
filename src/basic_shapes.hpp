@@ -8,5 +8,5 @@
 
 namespace basic_shapes {
 int showEquilateralTriangle();
-int showEquilateralTriangleWithInscribedUpsideDownEqTriangle();
+int showEqTriWithInscribedUpsideDownEqTri();
 } // namespace basic_shapes

@@ -52,7 +52,7 @@ GLuint createTriangleShaderProgram()
 void bindBuffers(GLuint& vertexArrayObject,
                  GLuint& vertexBufferObject,
                  const GLfloat* vertices,
-                 size_t verticesSize)
+                 GLsizeiptr verticesSize)
 {
     glGenVertexArrays(1, &vertexArrayObject);
     glGenBuffers(1, &vertexBufferObject);

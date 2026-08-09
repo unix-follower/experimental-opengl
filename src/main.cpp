@@ -14,7 +14,7 @@ const std::map<unsigned int, DemoFn>& demoRegistry()
 {
     static const std::map<unsigned int, DemoFn> registry{
         {1, basic_shapes::showEquilateralTriangle},
-        {2, basic_shapes::showEquilateralTriangleWithInscribedUpsideDownEqTriangle},
+        {2, basic_shapes::showEqTriWithInscribedUpsideDownEqTri},
     };
     return registry;
 }

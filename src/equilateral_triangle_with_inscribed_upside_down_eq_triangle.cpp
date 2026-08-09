@@ -1,22 +1,25 @@
 #include "basic_shapes.hpp"
 
 namespace {
-const char* vertexShaderSource = "#version 330 core\n"
-                                 "layout (location = 0) in vec3 aPos;\n"
-                                 "void main()\n"
-                                 "{\n"
-                                 "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-                                 "}\0";
+constexpr char const* vertexShaderSource = "#version 330 core\n"
+                                           "layout (location = 0) in vec3 aPos;\n"
+                                           "void main()\n"
+                                           "{\n"
+                                           "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+                                           "}\0";
 
-const char* fragmentShaderSource = "#version 330 core\n"
-                                   "out vec4 FragColor;\n"
-                                   "void main()\n"
-                                   "{\n"
-                                   "   FragColor = vec4(0.8f, 0.3f, 0.02f, 1.0f);\n"
-                                   "}\n\0";
+constexpr char const* fragmentShaderSource = "#version 330 core\n"
+                                             "out vec4 FragColor;\n"
+                                             "void main()\n"
+                                             "{\n"
+                                             "   FragColor = vec4(0.8f, 0.3f, 0.02f, 1.0f);\n"
+                                             "}\n\0";
 } // namespace
 
-int basic_shapes::showEquilateralTriangleWithInscribedUpsideDownEqTriangle()
+/**
+ * Show equilateral triangle with inscribed upside down equilateral triangle
+ */
+int basic_shapes::showEqTriWithInscribedUpsideDownEqTri() // NOLINT(readability-function-size)
 {
     glfwInit();
 
@@ -56,12 +59,12 @@ int basic_shapes::showEquilateralTriangleWithInscribedUpsideDownEqTriangle()
 
     GLfloat vertices[] = {
         // clang-format off
-		-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower left corner
-		0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower right corner
-		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f, // Upper corner
-		-0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inner left
-		0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inner right
-		0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f // Inner down
+		-0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower left corner
+		0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower right corner
+		0.0F, 0.5F * float(sqrt(3)) * 2 / 3, 0.0F, // Upper corner
+		-0.5F / 2, 0.5F * float(sqrt(3)) / 6, 0.0F, // Inner left
+		0.5F / 2, 0.5F * float(sqrt(3)) / 6, 0.0F, // Inner right
+		0.0F, -0.5F * float(sqrt(3)) / 3, 0.0F // Inner down
         // clang-format on
     };
 
@@ -73,7 +76,9 @@ int basic_shapes::showEquilateralTriangleWithInscribedUpsideDownEqTriangle()
         // clang-format on
     };
 
-    GLuint vao, vbo, ebo;
+    GLuint vao;
+    GLuint vbo;
+    GLuint ebo;
 
     glGenVertexArrays(1, &vao);
     glGenBuffers(1, &vbo);
@@ -95,7 +100,7 @@ int basic_shapes::showEquilateralTriangleWithInscribedUpsideDownEqTriangle()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
     while (!glfwWindowShouldClose(window)) {
-        glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+        glClearColor(0.07F, 0.13F, 0.17F, 1.0F);
         glClear(GL_COLOR_BUFFER_BIT);
         glUseProgram(shaderProgram);
         glBindVertexArray(vao);
