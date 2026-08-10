@@ -36,7 +36,8 @@ jobs:
             libxcursor-dev \
             libxinerama-dev \
             pkg-config \
-            xorg-dev
+            xorg-dev \
+            autoconf autoconf-archive automake libtool
 
       # Install latest CMake and Ninja.
       # https://github.com/marketplace/actions/get-cmake
