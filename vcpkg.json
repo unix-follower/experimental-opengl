@@ -1,8 +1,9 @@
 {
   "dependencies": [
+    "cxxopts",
     "glad",
     "glfw3",
     "gtest",
-    "cxxopts"
+    "boost-stacktrace"
   ]
 }
