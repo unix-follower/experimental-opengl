@@ -8,8 +8,20 @@ class VAO {
     GLuint id;
     VAO();
 
-    void linkVBO(VBO& vbo, GLuint layout) const;
+    static void linkVBO(VBO const& vbo, GLuint layout)
+    {
+        vbo.bind();
+        glVertexAttribPointer(layout, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+        glEnableVertexAttribArray(layout);
+        VBO::unbind();
+    }
+
     void bind() const;
-    void unbind() const;
+
+    static void unbind()
+    {
+        glBindVertexArray(0);
+    }
+
     void deleteVAO() const;
 };

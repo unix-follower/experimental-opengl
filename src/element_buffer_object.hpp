@@ -8,6 +8,11 @@ class EBO {
     EBO(GLuint const* indices, GLsizeiptr size);
 
     void bind() const;
-    void unbind() const;
+
+    static void unbind()
+    {
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    }
+
     void deleteEBO() const;
 };

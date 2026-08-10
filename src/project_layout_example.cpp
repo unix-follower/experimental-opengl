@@ -4,8 +4,7 @@
 #include "vertex_array_object.hpp"
 #include "vertex_buffer_object.hpp"
 
-#include <GLFW/glfw3.h>
-#include <glad/glad.h>
+#include <cmath>
 #include <iostream>
 
 namespace {
@@ -39,7 +38,7 @@ int basic_shapes::showExampleWithProjectLayout()
 
     GLFWwindow* window = glfwCreateWindow(800, 800, "Project Layout", NULL, NULL);
     if (window == NULL) {
-        std::cout << "Failed to create GLFW window" << std::endl;
+        std::cerr << "Failed to create GLFW window\n";
         glfwTerminate();
         return -1;
     }
@@ -62,7 +61,7 @@ int basic_shapes::showExampleWithProjectLayout()
     ebo.unbind();
 
     while (!glfwWindowShouldClose(window)) {
-        glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+        glClearColor(0.07F, 0.13F, 0.17F, 1.0F);
         glClear(GL_COLOR_BUFFER_BIT);
         shaderProgram.activate();
         vao.bind();
