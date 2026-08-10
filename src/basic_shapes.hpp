@@ -9,4 +9,5 @@
 namespace basic_shapes {
 int showEquilateralTriangle();
 int showEqTriWithInscribedUpsideDownEqTri();
+int showExampleWithProjectLayout();
 } // namespace basic_shapes
