@@ -9,7 +9,7 @@
 #include <iostream>
 
 namespace {
-GLfloat vertices[] = {
+const GLfloat vertices[] = {
     // clang-format off
 	-0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower left corner
 	0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower right corner
@@ -17,15 +17,15 @@ GLfloat vertices[] = {
 	-0.5F / 2, 0.5F * float(sqrt(3)) / 6, 0.0F, // Inner left
 	0.5F / 2, 0.5F * float(sqrt(3)) / 6, 0.0F, // Inner right
 	0.0F, -0.5F * float(sqrt(3)) / 3, 0.0F // Inner down
-         // clang-format on
+    // clang-format on
 };
 
-GLuint indices[] = {
+const GLuint indices[] = {
     // clang-format off
 	0, 3, 5, // Lower left triangle
 	3, 2, 4, // Lower right triangle
 	5, 4, 1 // Upper triangle
-      // clang-format on
+    // clang-format on
 };
 } // namespace
 
