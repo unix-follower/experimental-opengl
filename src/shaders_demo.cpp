@@ -18,7 +18,7 @@ const GLfloat vertices[] = {
 	-0.25f, 0.5f * float(sqrt(3)) * 1 / 6, 0.0f,     0.9f, 0.45f, 0.17f, // Inner left
 	 0.25f, 0.5f * float(sqrt(3)) * 1 / 6, 0.0f,     0.9f, 0.45f, 0.17f, // Inner right
 	 0.0f, -0.5f * float(sqrt(3)) * 1 / 3, 0.0f,     0.8f, 0.3f,  0.02f  // Inner down
-          // clang-format on
+    // clang-format on
 };
 
 const GLuint indices[] = {
@@ -26,7 +26,7 @@ const GLuint indices[] = {
 	0, 3, 5, // Lower left triangle
 	3, 2, 4, // Lower right triangle
 	5, 4, 1 // Upper triangle
-      // clang-format on
+    // clang-format on
 };
 
 int basic_shapes::showExampleWithShaders()
