@@ -8,6 +8,7 @@
 #include "shader.hpp"
 #include "vertex_array_object.hpp"
 #include "vertex_buffer_object.hpp"
+#include <cmath>
 
 const GLfloat vertices[] = {
     // clang-format off
@@ -39,7 +40,7 @@ int basic_shapes::showExampleWithShaders()
 
     GLFWwindow* window = glfwCreateWindow(800, 800, "Shaders demo", NULL, NULL);
     if (window == NULL) {
-        std::cout << "Failed to create GLFW window" << std::endl;
+        std::cout << "Failed to create GLFW window\n";
         glfwTerminate();
         return -1;
     }
@@ -57,7 +58,7 @@ int basic_shapes::showExampleWithShaders()
     EBO ebo(indices, sizeof(indices));
 
     VAO::linkAttrib(vbo, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
-    VAO::linkAttrib(vbo, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    VAO::linkAttrib(vbo, 1, 3, GL_FLOAT, 6 * sizeof(float), static_cast<char*>(nullptr) + (3 * sizeof(float)));
     VAO::unbind();
     VBO::unbind();
     EBO::unbind();

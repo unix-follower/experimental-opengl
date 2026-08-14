@@ -32,7 +32,7 @@ int basic_shapes::showEqTriWithInscribedUpsideDownEqTri() // NOLINT(readability-
     GLFWwindow* window = glfwCreateWindow(800, 800, "Inscribed Equilateral Triangle", NULL, NULL);
 
     if (window == NULL) {
-        std::cout << "Failed to create GLFW window" << std::endl;
+        std::cout << "Failed to create GLFW window\n";
         glfwTerminate();
         return -1;
     }

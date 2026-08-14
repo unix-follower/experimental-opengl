@@ -97,7 +97,7 @@ int basic_shapes::showEquilateralTriangle()
 
     GLFWwindow* window = glfwCreateWindow(800, 800, "Equilateral Triangle", NULL, NULL);
     if (window == NULL) {
-        std::cout << "Failed to create GLFW window" << std::endl;
+        std::cout << "Failed to create GLFW window\n";
         glfwTerminate();
         return -1;
     }

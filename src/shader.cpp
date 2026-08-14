@@ -9,7 +9,7 @@ std::string getFileContent(const char* filename)
         in.seekg(0, std::ios::end);
         content.resize(in.tellg());
         in.seekg(0, std::ios::beg);
-        in.read(content.data(), content.size());
+        in.read(content.data(), static_cast<std::streamsize>(content.size()));
         in.close();
         return content;
     }
