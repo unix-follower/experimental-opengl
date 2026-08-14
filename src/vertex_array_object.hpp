@@ -16,6 +16,24 @@ class VAO {
         VBO::unbind();
     }
 
+    static void linkAttrib(VBO const& vbo,
+                           GLuint layout,
+                           GLuint numComponents,
+                           GLenum type,
+                           GLsizeiptr stride,
+                           void* offset)
+    {
+        vbo.bind();
+        glVertexAttribPointer(layout,
+                              static_cast<GLint>(numComponents),
+                              type,
+                              GL_FALSE,
+                              static_cast<GLint>(stride),
+                              offset);
+        glEnableVertexAttribArray(layout);
+        VBO::unbind();
+    }
+
     void bind() const;
 
     static void unbind()
