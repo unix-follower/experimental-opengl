@@ -58,7 +58,8 @@ int basic_shapes::showExampleWithShaders()
     EBO ebo(indices, sizeof(indices));
 
     VAO::linkAttrib(vbo, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
-    VAO::linkAttrib(vbo, 1, 3, GL_FLOAT, 6 * sizeof(float), static_cast<char*>(nullptr) + (3 * sizeof(float)));
+    VAO::linkAttrib(
+        vbo, 1, 3, GL_FLOAT, 6 * sizeof(float), static_cast<char*>(nullptr) + (3 * sizeof(float)));
     VAO::unbind();
     VBO::unbind();
     EBO::unbind();
