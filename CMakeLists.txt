@@ -29,6 +29,7 @@ add_library(experimental_opengl_core
 	src/shader.hpp
 	src/shader.cpp
 	src/project_layout_example.cpp
+	src/shaders_demo.cpp
 )
 target_compile_features(experimental_opengl_core PUBLIC cxx_std_23)
 target_compile_options(experimental_opengl_core PRIVATE -g)
@@ -46,6 +47,8 @@ copy_shaders(
     SOURCES
         shaders/default.vert
         shaders/default.frag
+        shaders/shaders_demo.vert
+        shaders/shaders_demo.frag
 )
 
 enable_testing()

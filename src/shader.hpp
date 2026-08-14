@@ -16,4 +16,8 @@ class Shader {
 
     void activate() const;
     void deleteShader() const;
+
+  private:
+    // Checks if the shaders have compiled properly
+    void compileErrors(unsigned int shader, const char* type) const;
 };

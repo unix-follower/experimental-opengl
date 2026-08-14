@@ -16,6 +16,13 @@ class VAO {
         VBO::unbind();
     }
 
+    void linkAttrib(VBO const& vbo,
+                    GLuint layout,
+                    GLuint numComponents,
+                    GLenum type,
+                    GLsizeiptr stride,
+                    void* offset) const;
+
     void bind() const;
 
     static void unbind()
