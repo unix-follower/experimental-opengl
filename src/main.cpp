@@ -20,6 +20,7 @@ const std::map<unsigned int, DemoFn>& demoRegistry()
         {2, basic_shapes::showEqTriWithInscribedUpsideDownEqTri},
         {3, basic_shapes::showExampleWithProjectLayout},
         {4, basic_shapes::showExampleWithShaders},
+        {5, basic_shapes::showExampleWithTextures},
     };
     return registry;
 }
