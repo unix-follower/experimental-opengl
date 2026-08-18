@@ -11,6 +11,7 @@ find_package(glfw3 REQUIRED CONFIG)
 find_package(glad REQUIRED CONFIG)
 find_package(cxxopts REQUIRED)
 find_package(Boost REQUIRED COMPONENTS stacktrace_backtrace)
+find_package(Stb REQUIRED)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(Utils)
@@ -30,6 +31,10 @@ add_library(experimental_opengl_core
 	src/shader.cpp
 	src/project_layout_example.cpp
 	src/shaders_demo.cpp
+	src/example_with_textures.cpp
+	src/texture.hpp
+	src/texture.cpp
+	src/stb_image_impl.cpp
 )
 target_compile_features(experimental_opengl_core PUBLIC cxx_std_23)
 target_compile_options(experimental_opengl_core PRIVATE -g)
@@ -37,6 +42,7 @@ target_compile_options(experimental_opengl_core PRIVATE -g)
 target_compile_definitions(experimental_opengl_core PUBLIC BOOST_STACKTRACE_USE_BACKTRACE)
 target_link_libraries(experimental_opengl_core PUBLIC Boost::stacktrace_backtrace dl)
 
+target_include_directories(experimental_opengl_core PRIVATE "${Stb_INCLUDE_DIR}/..")
 target_link_libraries(experimental_opengl_core PUBLIC OpenGL::GL glfw glad::glad cxxopts::cxxopts)
 
 add_executable(experimental_opengl src/main.cpp)
