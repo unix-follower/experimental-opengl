@@ -12,7 +12,7 @@
 
 namespace fs = std::filesystem;
 
-GLfloat const vertices[] = {
+const GLfloat vertices[] = {
     // clang-format off
     //   COORDINATES     /        COLORS      /   TexCoord  //
 	-0.5F, -0.5F, 0.0F,     1.0F, 0.0F, 0.0F,	0.0F, 0.0F, // Lower left corner
@@ -22,7 +22,7 @@ GLfloat const vertices[] = {
     // clang-format on
 };
 
-GLuint const indices[] = {
+const GLuint indices[] = {
     // clang-format off
 	0, 2, 1, // Upper triangle
 	0, 3, 2 // Lower triangle

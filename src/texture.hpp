@@ -11,7 +11,7 @@ class Texture {
     GLenum type;
     Texture(const char* image, GLenum texType, GLenum slot, GLenum format, GLenum pixelType);
 
-    static void texUnit(Shader const& shader, const char* uniform, GLuint unit)
+    static void texUnit(const Shader& shader, const char* uniform, GLuint unit)
     {
         GLuint texUni = glGetUniformLocation(shader.id, uniform);
         shader.activate();

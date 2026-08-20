@@ -21,6 +21,7 @@ const std::map<unsigned int, DemoFn>& demoRegistry()
         {3, basic_shapes::showExampleWithProjectLayout},
         {4, basic_shapes::showExampleWithShaders},
         {5, basic_shapes::showExampleWithTextures},
+        {6, basic_shapes::showExampleWith3D},
     };
     return registry;
 }

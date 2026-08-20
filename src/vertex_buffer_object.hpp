@@ -5,7 +5,7 @@
 class VBO {
   public:
     GLuint id;
-    VBO(GLfloat const* vertices, GLsizeiptr size);
+    VBO(const GLfloat* vertices, GLsizeiptr size);
 
     void bind() const;
 
