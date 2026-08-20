@@ -12,4 +12,5 @@ int showEqTriWithInscribedUpsideDownEqTri();
 int showExampleWithProjectLayout();
 int showExampleWithShaders();
 int showExampleWithTextures();
+int showExampleWith3D();
 } // namespace basic_shapes

@@ -5,7 +5,7 @@
 class EBO {
   public:
     GLuint id;
-    EBO(GLuint const* indices, GLsizeiptr size);
+    EBO(const GLuint* indices, GLsizeiptr size);
 
     void bind() const;
 
