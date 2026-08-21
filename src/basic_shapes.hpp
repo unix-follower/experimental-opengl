@@ -13,4 +13,5 @@ int showExampleWithProjectLayout();
 int showExampleWithShaders();
 int showExampleWithTextures();
 int showExampleWith3D();
+int showExampleWithCamera();
 } // namespace basic_shapes
