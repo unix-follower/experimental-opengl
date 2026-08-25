@@ -24,6 +24,24 @@ void Camera::matrix(float fovDegrees,
         glGetUniformLocation(shader.id, uniform), 1, GL_FALSE, glm::value_ptr(projection * view));
 }
 
+void Camera::matrix(const Shader& shader, const char* uniform)
+{
+    glUniformMatrix4fv(
+        glGetUniformLocation(shader.id, uniform), 1, GL_FALSE, glm::value_ptr(cameraMatrix));
+}
+
+void Camera::updateMatrix(float fovDegrees, float nearPlane, float farPlane)
+{
+    auto view = glm::mat4(1.0F);
+    auto projection = glm::mat4(1.0F);
+
+    view = glm::lookAt(position, position + orientation, up);
+    projection = glm::perspective(
+        glm::radians(fovDegrees), (float)width / static_cast<float>(height), nearPlane, farPlane);
+
+    cameraMatrix = projection * view;
+}
+
 void Camera::inputs(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {

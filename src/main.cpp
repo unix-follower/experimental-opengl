@@ -23,6 +23,7 @@ const std::map<unsigned int, DemoFn>& demoRegistry()
         {5, basic_shapes::showExampleWithTextures},
         {6, basic_shapes::showExampleWith3D},
         {7, basic_shapes::showExampleWithCamera},
+        {8, basic_shapes::showExampleWithLighting},
     };
     return registry;
 }

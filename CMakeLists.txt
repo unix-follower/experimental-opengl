@@ -37,9 +37,10 @@ add_library(experimental_opengl_core
 	src/texture.cpp
 	src/stb_image_impl.cpp
 	src/example_with_3d.cpp
-	src/showExampleWithCamera.cpp
+	src/exampleWithCamera.cpp
 	src/camera.hpp
 	src/camera.cpp
+	src/exampleWithLighting.cpp
 )
 target_compile_features(experimental_opengl_core PUBLIC cxx_std_23)
 target_compile_options(experimental_opengl_core PRIVATE -g)
