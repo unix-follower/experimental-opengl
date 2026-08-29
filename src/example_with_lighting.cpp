@@ -38,7 +38,7 @@ const GLfloat vertices[] = {
 
 	 0.5F, 0.0F,  0.5F,     0.83F, 0.70F, 0.44F,	 5.0F, 0.0F,      0.0F, 0.5F,  0.8F, // Facing side
 	-0.5F, 0.0F,  0.5F,     0.83F, 0.70F, 0.44F, 	 0.0F, 0.0F,      0.0F, 0.5F,  0.8F, // Facing side
-	 0.0F, 0.8F,  0.0F,     0.92F, 0.86F, 0.76F,	 2.5F, 5.0F,      0.0F, 0.5F,  0.8F  // Facing side
+	 0.0F, 0.8F,  0.0F,     0.92F, 0.86F, 0.76F,	 2.5F, 5.0F,      0.0F, 0.5F,  0.8F, // Facing side
     // clang-format on
 };
 
@@ -49,7 +49,7 @@ const GLuint indices[] = {
 	4, 6, 5, // Left side
 	7, 9, 8, // Non-facing side
 	10, 12, 11, // Right side
-	13, 15, 14 // Facing side
+	13, 15, 14, // Facing side
     // clang-format on
 };
 
@@ -62,7 +62,7 @@ const GLfloat lightVertices[] = {
 	-0.1F,  0.1F,  0.1F,
 	-0.1F,  0.1F, -0.1F,
 	 0.1F,  0.1F, -0.1F,
-	 0.1F,  0.1F,  0.1F
+	 0.1F,  0.1F,  0.1F,
     // clang-format on
 };
 
@@ -79,7 +79,7 @@ const GLuint lightIndices[] = {
 	1, 5, 4,
 	1, 4, 0,
 	4, 5, 6,
-	4, 6, 7
+	4, 6, 7,
     // clang-format on
 };
 

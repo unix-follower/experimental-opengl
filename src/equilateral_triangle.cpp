@@ -112,7 +112,7 @@ int basic_shapes::showEquilateralTriangle()
         // clang-format off
         -0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower left corner
         0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower right corner
-        0.0F, 0.5F * float(sqrt(3)) * 2 / 3, 0.0F // Upper corner
+        0.0F, 0.5F * float(sqrt(3)) * 2 / 3, 0.0F, // Upper corner
         // clang-format on
     };
 

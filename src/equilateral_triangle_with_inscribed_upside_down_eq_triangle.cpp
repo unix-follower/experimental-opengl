@@ -66,7 +66,7 @@ int basic_shapes::showEqTriWithInscribedUpsideDownEqTri() // NOLINT(readability-
 		0.0F, 0.5F * float(sqrt(3)) * 2 / 3, 0.0F, // Upper corner
 		-0.5F / 2, 0.5F * float(sqrt(3)) / 6, 0.0F, // Inner left
 		0.5F / 2, 0.5F * float(sqrt(3)) / 6, 0.0F, // Inner right
-		0.0F, -0.5F * float(sqrt(3)) / 3, 0.0F // Inner down
+		0.0F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Inner down
         // clang-format on
     };
 
@@ -74,7 +74,7 @@ int basic_shapes::showEqTriWithInscribedUpsideDownEqTri() // NOLINT(readability-
         // clang-format off
 		0, 3, 5, // Lower left triangle
 		3, 2, 4, // Upper triangle
-		5, 4, 1 // Lower right triangle
+		5, 4, 1, // Lower right triangle
         // clang-format on
     };
 

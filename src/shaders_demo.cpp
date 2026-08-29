@@ -18,7 +18,7 @@ const GLfloat vertices[] = {
 	 0.0F,  0.5F * float(sqrt(3)) * 2 / 3, 0.0F,     1.0F, 0.6F,  0.32F, // Upper corner
 	-0.25F, 0.5F * float(sqrt(3)) * 1 / 6, 0.0F,     0.9F, 0.45F, 0.17F, // Inner left
 	 0.25F, 0.5F * float(sqrt(3)) * 1 / 6, 0.0F,     0.9F, 0.45F, 0.17F, // Inner right
-	 0.0F, -0.5F * float(sqrt(3)) * 1 / 3, 0.0F,     0.8F, 0.3F,  0.02F  // Inner down
+	 0.0F, -0.5F * float(sqrt(3)) * 1 / 3, 0.0F,     0.8F, 0.3F,  0.02F, // Inner down
     // clang-format on
 };
 
@@ -26,7 +26,7 @@ const GLuint indices[] = {
     // clang-format off
 	0, 3, 5, // Lower left triangle
 	3, 2, 4, // Lower right triangle
-	5, 4, 1 // Upper triangle
+	5, 4, 1, // Upper triangle
     // clang-format on
 };
 
