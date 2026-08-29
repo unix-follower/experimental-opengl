@@ -37,10 +37,11 @@ add_library(experimental_opengl_core
 	src/texture.cpp
 	src/stb_image_impl.cpp
 	src/example_with_3d.cpp
-	src/exampleWithCamera.cpp
+	src/example_with_camera.cpp
 	src/camera.hpp
 	src/camera.cpp
-	src/exampleWithLighting.cpp
+	src/example_with_lighting.cpp
+	src/example_with_specular_maps.cpp
 )
 target_compile_features(experimental_opengl_core PUBLIC cxx_std_23)
 target_compile_options(experimental_opengl_core PRIVATE -g)
@@ -66,6 +67,8 @@ copy_shaders(
         shaders/example_with_3d.frag
         shaders/example_with_camera.vert
         shaders/example_with_camera.frag
+		shaders/example_with_specular_maps.vert
+        shaders/example_with_specular_maps.frag
 )
 
 enable_testing()

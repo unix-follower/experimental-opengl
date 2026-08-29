@@ -1,6 +1,6 @@
 #include "texture.hpp"
 
-Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, GLenum pixelType)
+Texture::Texture(const char* image, GLenum texType, GLuint slot, GLenum format, GLenum pixelType)
 {
     type = texType;
 
@@ -9,9 +9,13 @@ Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, 
     int numColorChannels;
     stbi_set_flip_vertically_on_load(true);
     unsigned char* bytes = stbi_load(image, &imageWidth, &imageHeight, &numColorChannels, 0);
+    if (!bytes) {
+        std::cout << "Failed to load texture: " << image << "\n";
+    }
 
     glGenTextures(1, &id);
-    glActiveTexture(slot);
+    glActiveTexture(GL_TEXTURE0 + slot);
+    unit = slot;
     glBindTexture(texType, id);
 
     glTexParameteri(texType, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
@@ -30,6 +34,7 @@ Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, 
 
 void Texture::bind() const
 {
+    glActiveTexture(GL_TEXTURE0 + unit);
     glBindTexture(type, id);
 }
 
