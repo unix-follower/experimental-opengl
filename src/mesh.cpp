@@ -53,5 +53,5 @@ void Mesh::draw(const Shader& shader, Camera& camera)
                 camera.position.z);
     camera.matrix(shader, "cameraMatrix");
 
-    glDrawElements(GL_TRIANGLES, indices_.size(), GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices_.size()), GL_UNSIGNED_INT, 0);
 }

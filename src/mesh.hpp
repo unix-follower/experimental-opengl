@@ -6,6 +6,8 @@
 #include "element_buffer_object.hpp"
 #include "texture.hpp"
 #include "vertex_array_object.hpp"
+#include <memory>
+#include <vector>
 
 class Mesh {
     std::vector<Vertex> vertices_;
