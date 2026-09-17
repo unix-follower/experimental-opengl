@@ -5,12 +5,12 @@
 
 #include "shader.hpp"
 
-class Texture {
+class BaseTexture {
   public:
     GLuint id;
-    GLenum type;
     GLuint unit;
-    Texture(const char* image, GLenum texType, GLenum slot, GLenum format, GLenum pixelType);
+
+    virtual ~BaseTexture() = default;
 
     static void texUnit(const Shader& shader, const char* uniform, GLuint unit)
     {
@@ -19,7 +19,30 @@ class Texture {
         glUniform1i(static_cast<GLint>(texUni), static_cast<GLint>(unit));
     }
 
-    void bind() const;
-    void unbind() const;
-    void deleteTexture() const;
+    virtual void bind() const = 0;
+    virtual void unbind() const = 0;
+
+    virtual void deleteTexture() const
+    {
+        glDeleteTextures(1, &id);
+    }
+};
+
+class Texture : public BaseTexture {
+  public:
+    GLenum type;
+    Texture(const char* image, GLenum texType, GLenum slot, GLenum format, GLenum pixelType);
+
+    void bind() const override;
+    void unbind() const override;
+};
+
+class TypeStringBasedTexture : public BaseTexture {
+  public:
+    const char* type;
+    TypeStringBasedTexture(
+        const char* image, const char* texType, GLuint slot, GLenum format, GLenum pixelType);
+
+    void bind() const override;
+    void unbind() const override;
 };

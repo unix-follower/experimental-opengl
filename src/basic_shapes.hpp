@@ -17,4 +17,5 @@ int showExampleWithCamera();
 int showExampleWithLighting();
 int showExampleWithSpecularMaps();
 int showExampleWithTypesOfLight();
+int showExampleWithMeshClass();
 } // namespace basic_shapes
