@@ -43,6 +43,9 @@ add_library(experimental_opengl_core
 	src/example_with_lighting.cpp
 	src/example_with_specular_maps.cpp
 	src/example_with_types_of_light.cpp
+	src/example_with_mesh_class.cpp
+	src/mesh.hpp
+	src/mesh.cpp
 )
 target_compile_features(experimental_opengl_core PUBLIC cxx_std_23)
 target_compile_options(experimental_opengl_core PRIVATE -g)
